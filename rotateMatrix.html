@@ -1,5 +1,29 @@
 <script>
 
+/**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+var rotate = function(matrix) {
+    
+    function trCoord(row,col,dim){
+        return [Math.min(row+dim-1,dim-1), (col+(n-1) % (n-1))]; //[col,row]
+    }
+    
+    let N = matrix[1].length;
+    
+    let tmp=0;
+    
+    for(let i=0; i<N; i++)
+        {
+            for(let ii=0; ii<N; i++)
+                {
+                    [row,col] = trCoord(i,ii,Math.min)
+                    matrix[]      
+                }
+        }
+    
+};
 
 
 </script>
