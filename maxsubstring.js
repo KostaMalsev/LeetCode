@@ -8,29 +8,26 @@ var lengthOfLongestSubstring = function(s) {
     hasBeenArr.fill(-1, 0, 127);
     while (i < sLength) {
       let hasBeen = hasBeenArr[s[i].charCodeAt(0)];
-      console.log('itr', i, s, hasBeen, s, sLength);
       if (hasBeen > -1) {
-        if (sstring.length < i) {
-          //Store the longest string:                            
-          sstring = s.substring(0, i - 1);
-        } //Slice the relevent part for future search iteration:                        
-        s = s.substring(hasBeen + 1, s.length - 1);
-        break; //exit the inner loop                                            
-      } else {
-        //Store in hash                        
-        hasBeenArr[s[i].charCodeAt(0)] = i;
-        //In case we at the end of the string:                       
-        if (i == sLength - 1 && (sstring.length < s.length)) {
-          console.log(s)
-          sstring = s;
-          break;
+        if (sstring.length < i) { //Store the longest string:                         
+          sstring = s.substring(0, i);
         }
+        //Slice the relevent part for future search iteration:                    
+        s = s.substring(hasBeen + 1, s.length);
+        break; //exit the inner loop                                          
+      } else {
+        //Store in hash                      
+        hasBeenArr[s[i].charCodeAt(0)] = i;
       }
       i++;
+    } //In case we at the end of the string:          
+    if (i == sLength && (s.length > sstring.length)) {
+      sstring = s;
+      break;
     }
-    if (i == sLength) { //console.log(s,'max strig:',sstring)              
+    if (i == sLength) {
       break;
     }
   }
-  console.log(sstring) return sstring.length;
+  return sstring.length;
 };
