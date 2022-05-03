@@ -1,34 +1,37 @@
 <script>
-
-/**
- * @param {number[][]} matrix
- * @return {void} Do not return anything, modify matrix in-place instead.
- */
-var rotate = function(matrix) {
-    
-    function trCoord(row,col,dim){
-        return [Math.min(row+dim-1,dim-1), (col+(dim-1) % (dim-1))]; //[col,row]
-    }
-    
-    let N = matrix[1].length;
-    console.log(N)
-    
-    let tmp=0;
-    
-    for(let i=0; i<N; i++)
-        {
-            for(let ii=0; ii<N; i++)
-                {
-                    [row,col] = trCoord(i,ii,Math.min);
-                    //matrix[]      
-                }
+  /** * @param {number[][]} matrix * @return {void} Do not return anything, modify matrix in-place instead. */
+  var rotate = function(matrix) {
+      /* Get the next coordinate*/
+      function trCoord(row, col, dim) {
+        return [Math.min(row + dim - 1, dim - 1), (col + (dim - 1) % (dim - 1))];
+        //[col,row] } 
+        let N = matrix[1].length;
+        let tmp = 0;
+        let elToMove = 0;
+        let row, col = 0;
+        let nextRow, nextCol = 0;
+        let firstToMove = -1;
+        let lastDim = -1;
+        let dim = N;
+        
+        while (ii < N * N) {
+          /*Init the start:*/
+          if (firstToMove == -1 && lastDim != dim) {
+            firstToMove = matrix[row, col];
+            lastDim = dim; /* Find next element*/
+            [nextRow, nextCol] = trCoord(row, col, dim);
+            tmp = matrix[nextRow, nextCol];
+            elToMove = firstToMove;
+          } else {
+            tmp = matrix[nextRow, nextCol];
+            elToMove = tmp;
+          } /*Move to the next dimension if did the full circle*/
+          if (matrix[row, col] == firstToMove && lastDim == dim) {
+            dim--;
+          } /*Replace and move to the next*/
+          matrix[nextRow, nextCol] = elToMove;
+          row = nextRow;
+          col = nextCol;
         }
-    
-};
-
-
-let matrix=[[1,2,3],[4,5,6],[7,8,9]];
-
-let rotates  = rotate(matrix);
-
+      };
 </script>
