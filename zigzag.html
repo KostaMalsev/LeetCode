@@ -10,11 +10,12 @@ var convert = function(s, numRows) {
     let nrows = numRows;
     let ncols = 7;//Math.ceil(s.length/numRows);
     
-    var a = new Array(nrows).fill(new Array(ncols));
+    var a = new Array(nrows).fill(new Array(ncols).fill(''));
 
     //console.log(nrows,ncols)
     
-
+    const printMatrix = a.map((d) => d.join(" ")).join("\n")
+		console.log(printMatrix)
     
     function store()
     {
@@ -61,7 +62,6 @@ var convert = function(s, numRows) {
                         
           }
         
-    const printMatrix = a.map((d) => d.join(" ")).join("\n")
 
     console.log(printMatrix);return
 
