@@ -1,2 +1,110 @@
+<script>
 
-
+/**
+ * @param {string} s
+ * @param {number} numRows
+ * @return {string}
+ */
+var convert = function(s, numRows) {
+    
+    let nrows = numRows;
+    let ncols = 7;//Math.ceil(s.length/numRows);
+    
+    var a = new Array(nrows).fill(new Array(ncols));
+
+    //console.log(nrows,ncols)
+    
+
+    
+    function store()
+    {
+        let i=0;
+        let row=1;
+        let col=0;
+        
+        a[0][0] = s[0];
+        i++;
+        console.log('a(',0,col,')=',a[0][col],'@',0,'2nd')
+
+      //Go down:
+      while(i < s.length)
+          {
+              
+        while( ((row <= nrows-1)  || (row < 2)) && (i < s.length) )
+            {
+                //console.log('first loop',row,col,i)
+                a[row][col] = s[i];
+                console.log('a(',row,col,')=',a[row][col],'@',i,'1st')
+                i++;
+                row++;
+            }
+            
+         row-=2;
+         col++;
+        console.log('-----outside 1st loop',row,col,i);
+
+        //diagonal up
+        while( (row >= 0) && (i < s.length) )
+        {
+              
+                //console.log('second loop before',row,col,i);
+                a[row][col] = s[i];
+                console.log('a(',row,col,')=',a[row][col],'@',i,'2nd')
+                row--;
+                col++;
+                i++;
+        }
+             col--;
+             row+=2;
+       console.log('-----outside 2nd loop',row,col,i);
+
+                        
+          }
+        
+    const printMatrix = a.map((d) => d.join(" ")).join("\n")
+
+    console.log(printMatrix);return
+
+    return; //a was updated
+  }
+    
+    function print()
+    {
+        let i=0;
+        let res = '';
+        let col = 0;
+        let row = 0;
+        
+        return;
+        
+        //console.log(printMatrix);return
+        
+        while(i < s.length )
+            {
+                if(col > ncols-1){ 
+                    col = 0;
+                    row++; 
+                }
+                
+                if(typeof(a[row][col])!= 'undefined')
+                    res+=a[row][col];
+                row++;
+                i++;
+            }
+        
+        return res;
+    }
+    
+    store();
+    print();
+    
+    
+};
+
+let s = "PAYPALISHIRING"
+let numRows = 3;
+
+convert (s, numRows);
+
+
+</script>
