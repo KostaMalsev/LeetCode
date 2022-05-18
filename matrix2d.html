@@ -1,2 +1,19 @@
+<script>
+	let array2D = Array(3).fill().map(entry => Array(7));
 
-
+	let row = 0;
+	let col = 0;
+	let i = 0;
+	while (i < 20) {
+		for (let row = 0; row < 3; row++) {
+			for (let col = 1; col < 7; col++) {
+				array2D[row][col] = i;
+				i++;
+			}
+		}
+	}
+
+	const printMatrix = array2D.map((d) => d.join(" ")).join("\n");
+
+	console.log(printMatrix);
+</script>
