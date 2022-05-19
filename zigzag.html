@@ -100,8 +100,8 @@ var convert = function(s, numRows) {
 
                         
           }
-        
-    out.innerHTML = printMatrix();
+    if(typeof(out)!=='undefined')    
+    	out.innerHTML = printMatrix();
     printMatrix();
 
     return; //a was updated
@@ -113,25 +113,18 @@ var convert = function(s, numRows) {
         let res = '';
         let col = 0;
         let row = 0;
-        
-        return;
-        
-        //console.log(printMatrix);return
-        
-        while(i < s.length )
-            {
-                if(col > ncols-1){ 
-                    col = 0;
-                    row++; 
-                }
                 
-                if(typeof(a[row][col])!= 'undefined')
-                    res+=a[row][col];
-                row++;
-                i++;
-            }
-        
-        return res;
+        let outm='';
+				for(let row=0;row < nrows;row++)
+				{
+					for(let col=0;col < ncols;col++)
+					{
+						if(get(row,col)!='*')
+							outm+= get(row,col);
+					}
+				}
+				console.log(outm);
+				return outm;        
     }
     
     store();
