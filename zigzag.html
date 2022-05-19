@@ -1,5 +1,5 @@
 <body>
-
+<a id="out"> </a>
 
 <script>
 
@@ -8,6 +8,8 @@
  * @param {number} numRows
  * @return {string}
  */
+let out= window.quuarySector('#out');
+
 var convert = function(s, numRows) {
     
     let nrows = numRows;
@@ -65,7 +67,7 @@ var convert = function(s, numRows) {
                         
           }
         
-
+    out.innerHTML = printMatrix;
     console.log(printMatrix);return
 
     return; //a was updated
@@ -108,4 +110,7 @@ let s = "PAYPALISHIRING"
 let numRows = 3;
 
 convert (s, numRows); 
+
 </script>
+
+</body>
