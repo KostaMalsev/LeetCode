@@ -20,7 +20,7 @@ var convert = function(s, numRows) {
     let ncols = 7;//Math.ceil(s.length/numRows);
     
     //var a = new Array(nrows).fill(new Array(ncols).fill(''));
-		var a = new Array(nrows*ncols).fill('$');
+		var a = new Array(nrows*ncols).fill('*');
     
 
 
@@ -44,13 +44,13 @@ var convert = function(s, numRows) {
 		
 		function set(row,col,value)
 		{
-			a[row*N + col] = value;
+			a[row*(N-1) + col] = value;
 			return;
 		}
 		
 		function get(row,col)
 		{
-			return a[row*N + col];
+			return a[row*(N-1) + col];
 		}
     
     function store()
