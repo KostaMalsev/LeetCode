@@ -8,9 +8,16 @@
  * @param {number} numRows
  * @return {string}
  */
-let out= window.quarySector('#out');
 
 var convert = function(s, numRows) {
+	
+		let out= document.querySelector('#out');
+		
+		function ind(row,col,N)
+		{
+			return row*N + col;
+		}
+
     
     let nrows = numRows;
     let ncols = 7;//Math.ceil(s.length/numRows);
