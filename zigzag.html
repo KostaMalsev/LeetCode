@@ -26,16 +26,19 @@ var convert = function(s, numRows) {
 
     function printMatrix(){
 				let outm='';
+				let outmHTML = ''
 				for(let row=0;row<nrows;row++)
 				{
 					for(let col=0;col<ncols;col++)
 					{
 						outm+= get(row,col)+ ' ';
+						outmHTML+=get(row,col)+ ' ';
 					}
 					outm+='\n';
+					outmHTML+=get(row,col)+ '<br>';
 				}//a.map((d) => d.join(" ")).join("\n");
 				console.log(outm);
-				return outm;
+				return outmHTML;
     }
 
 
