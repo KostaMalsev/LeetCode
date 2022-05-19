@@ -72,7 +72,7 @@ var convert = function(s, numRows) {
                 //console.log('first loop',row,col,i)
                 //a[row][col] = s[i];
 								set(row,col,s[i]);
-								console.log('a(',row,col,')=',get(a,row,col),'@',i,'1st')
+								console.log('a(',row,col,')=',get(row,col),'@',i,'1st')
                 //console.log('a(',row,col,')=',a[row][col],'@',i,'1st')
                 i++;
                 row++;
@@ -89,7 +89,7 @@ var convert = function(s, numRows) {
                 //console.log('second loop before',row,col,i);
                 //a[row][col] = s[i];
 								set(row,col,s[i]);
-                console.log('a(',row,col,')=',get(a,row,col),'@',i,'2nd')
+                console.log('a(',row,col,')=',get(row,col),'@',i,'2nd')
                 row--;
                 col++;
                 i++;
