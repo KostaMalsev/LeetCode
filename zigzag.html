@@ -43,13 +43,13 @@ var convert = function(s, numRows) {
 		
 		function set(row,col,value)
 		{
-			a[row*(ncols-1) + col] = value;
+			a[row*(ncols) + col] = value;
 			return;
 		}
 		
 		function get(row,col)
 		{
-			return a[row*(ncols-1) + col];
+			return a[row*(ncols) + col];
 		}
     
     function store()
