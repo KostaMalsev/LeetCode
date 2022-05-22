@@ -1,57 +1,56 @@
 <script>
-/**
- * @param {string} digits
- * @return {string[]}
- */
-var letterCombinations = function(digits) {
-        
-    const STRT = 97-2;
-        
-    
-    function getChars(digit_)
-    {
-        if(digit_=='1') return [];
-        let digit = Number(digit_)*3-4;
-        
-        return [String.fromCharCode(STRT+digit),
-                String.fromCharCode(STRT+digit+1),
-                String.fromCharCode(STRT+digit+2)];
+  /**
+   * @param {string} digits
+   * @return {string[]}
+   */
+  var letterCombinations = function(digits) {
+
+    const STRT = 97 - 2;
+
+
+    function getChars(digit_) {
+      if (digit_ == '1') return [];
+      let digit = Number(digit_) * 3 - 4;
+
+      return [String.fromCharCode(STRT + digit),
+        String.fromCharCode(STRT + digit + 1),
+        String.fromCharCode(STRT + digit + 2)
+      ];
     }
-    
-    if(digits.length == 0) return [];
-    if(digits.length == 1) return getChars(digitA[0]);
-    
+
+    if (digits.length == 0) return [];
+    if (digits.length == 1) return getChars(digitA[0]);
+
     let digitA = digits.split("");
     let N = digitA.length;
     let dg = 0;
     let res = [];
     let options = [];
-    
-    for(let i=0;i<digitA.length;i++)
-        {
-            options.push( getChars(digitA[i]) );
+
+    for (let i = 0; i < digitA.length; i++) {
+      options.push(getChars(digitA[i]));
+    }
+    console.log(options)
+
+    //run on all options
+    for (let i = 0; i < otions[0].length; i++) //let i=0;i<options.length;i++)
+    {
+      //Run on all digits
+      for (let j = 0; j < options[1].length; j++) {
+        for (let k = 0; k < options[2].length; k++) {
+          for (let g = 0; g < options[3].length; g++) {
+
+          }
         }
-    console.log(digitA)
-    
-    for(let k=0;k<2;k++) //let i=0;i<options.length;i++)
-        {    
-        
-        for(let j=0; j< options.length;j++)
-                {
-                  let str='';
-                  for(let i=0;i<options[j].length;i++){
-                    str+= (options[j][i] + options[j][i]);
-                }
-                res.push(str)
-            }
-        }
+
+      }
+      res.push(str);
+    }
     console.log(res)
-    
+
     return res;
-    
-};
 
-letterCombinations('123')
+  };
 
+  letterCombinations('2367')
 </script>
-
