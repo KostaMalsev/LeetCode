@@ -9,12 +9,9 @@ var isPalindrome = function(x) {
     let finished = false;
     let nArr = [];
     
-    let num = x;
+    let num = x;    
     
-    let ind=0;
-    
-    
-    while(Math.abs(num) > 0 && ind<1000){
+    while(Math.abs(num) > 0 ){
         nArr.push(num % 10);
         num = ~~(num/10);
         console.log(num)
