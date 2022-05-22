@@ -32,8 +32,13 @@
     }
     console.log(options)
 
-    //run on all options
     for (let i = 0; i < options[0].length; i++){
+      if(options.length < 2) 
+      {
+        str = options[0][i];
+        continue;
+      }
+      
       for (let j = 0; j < options[1].length; j++) {
         for (let k = 0; k < options[2].length; k++) {
           for (let g = 0; g < options[3].length; g++) {
