@@ -1,2 +1,46 @@
+<script>
+/**
+ * @param {number} n
+ * @return {string}
+ */
+var countAndSay = function(n) {
+    
+    let s='1';
+    let ind = 0;
+    
+    for(let i=0;i<n-1;i++)
+        {
+            //go over the string
+            let count=0;
+            let strt=0;
+            let res='';
+            
+            while( strt < s.length)
+                {
+                    
+                    let last = s[strt];
+                    count=0;
+                    
+                    while( s[strt+count] == last && ((strt+count) <= s.length))
+                        {
+                            count++;
 
-
+                        }
+
+                    strt += count;
+                    res+= count+last;
+
+                }
+            ind++;
+
+            console.log(s)
+
+            s = res;
+        }
+    console.log(s)
+
+    return s;
+    
+};
+
+</script>
