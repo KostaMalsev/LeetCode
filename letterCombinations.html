@@ -36,12 +36,27 @@
       if(options.length < 2) 
       {
         str = options[0][i];
+        res.push(str);
         continue;
       }
       
       for (let j = 0; j < options[1].length; j++) {
+        if(options.length < 3) 
+      {
+        str = options[0][i]+options[1][j];
+        res.push(str);
+        continue;
+      }
+        
         for (let k = 0; k < options[2].length; k++) {
+          if(options.length < 4) 
+      {
+        str = options[0][i]+options[1][j]+options[2][k];
+        res.push(str);
+        continue;
+      }
           for (let g = 0; g < options[3].length; g++) {
+            
             let str = options[0][i]+options[1][j]
                       +options[2][k]+options[3][g];
             res.push(str);
