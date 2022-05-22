@@ -1,5 +1,57 @@
 <script>
+/**
+ * @param {string} digits
+ * @return {string[]}
+ */
+var letterCombinations = function(digits) {
+        
+    const STRT = 97-2;
+        
+    
+    function getChars(digit_)
+    {
+        if(digit_=='1') return [];
+        let digit = Number(digit_)*3-4;
+        
+        return [String.fromCharCode(STRT+digit),
+                String.fromCharCode(STRT+digit+1),
+                String.fromCharCode(STRT+digit+2)];
+    }
+    
+    if(digits.length == 0) return [];
+    if(digits.length == 1) return getChars(digitA[0]);
+    
+    let digitA = digits.split("");
+    let N = digitA.length;
+    let dg = 0;
+    let res = [];
+    let options = [];
+    
+    for(let i=0;i<digitA.length;i++)
+        {
+            options.push( getChars(digitA[i]) );
+        }
+    console.log(digitA)
+    
+    for(let k=0;k<2;k++) //let i=0;i<options.length;i++)
+        {
+            for(let i=0;i<options.length;i++){
+                
+                let str='';
+                for(let j=0; j< options[i].length;j++)
+                {
+                    str+= (options[i][k] + options[i][j]);
+                }
+                res.push(str)
+            }
+        }
+    console.log(res)
+    
+    return res;
+    
+};
 
+letterCombinations('123')
 
 </script>
 
