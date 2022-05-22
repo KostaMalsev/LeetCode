@@ -12,10 +12,13 @@ var isPalindrome = function(x) {
     let num = x;    
     
     while(Math.abs(num) > 0 ){
-        nArr.push(num % 10);
+        
+        let nnum=0;
+        if(~~(num/10) == 0) nnum = num % 10
+        else nnum = num > 0 ? num % 10 : -1*(num % 10);
+        nArr.push(nnum);
         num = ~~(num/10);
         console.log(num)
-        ind++;
     }    
     console.log(nArr)
     
