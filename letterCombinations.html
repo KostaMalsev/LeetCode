@@ -34,13 +34,13 @@ var letterCombinations = function(digits) {
     console.log(digitA)
     
     for(let k=0;k<2;k++) //let i=0;i<options.length;i++)
-        {
-            for(let i=0;i<options.length;i++){
-                
-                let str='';
-                for(let j=0; j< options[i].length;j++)
+        {    
+        
+        for(let j=0; j< options.length;j++)
                 {
-                    str+= (options[i][k] + options[i][j]);
+                  let str='';
+                  for(let i=0;i<options[j].length;i++){
+                    str+= (options[j][i] + options[j][i]);
                 }
                 res.push(str)
             }
