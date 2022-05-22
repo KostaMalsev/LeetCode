@@ -33,18 +33,18 @@
     console.log(options)
 
     //run on all options
-    for (let i = 0; i < otions[0].length; i++) //let i=0;i<options.length;i++)
+    for (let i = 0; i < options[0].length; i++) //let i=0;i<options.length;i++)
     {
       //Run on all digits
       for (let j = 0; j < options[1].length; j++) {
         for (let k = 0; k < options[2].length; k++) {
           for (let g = 0; g < options[3].length; g++) {
-
+            let str = options[0][i]+options[0][j]+options[0][k]+options[0][g];
+            res.push(str);
           }
         }
 
       }
-      res.push(str);
     }
     console.log(res)
 
