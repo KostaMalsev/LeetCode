@@ -17,12 +17,13 @@
         String.fromCharCode(STRT + digit + 2)
       ];
     }
+    
+    let digitA = digits.split("");
+
 
     if (digits.length == 0) return [];
     if (digits.length == 1) return getChars(digitA[0]);
 
-    let digitA = digits.split("");
-    let N = digitA.length;
     let dg = 0;
     let res = [];
     let options = [];
@@ -68,5 +69,5 @@
 
   };
 
-  letterCombinations('2367')
+  letterCombinations('3')
 </script>
