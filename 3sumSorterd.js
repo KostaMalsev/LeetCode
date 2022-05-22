@@ -56,6 +56,11 @@ var threeSum = function(nums) {
         nums.sort((a, b) => a - b);
     }
     
+    function sorta(arr)
+    {
+        arr.sort((a, b) => a - b);
+    }
+    
     function binarySearch(start,end, key){
         
         while (start <= end) {
@@ -84,9 +89,11 @@ var threeSum = function(nums) {
     let ptrmx = nums.length-1;
     let finished = false;
     
-    while(!finished)
+    while(ptrmin < nums.length-1){
+        ptrmx = nums.length-1;
+    while(ptrmx > 0)
         {
-            let third = (-nums[ptrmin] - nums[ptrmx]);
+            let third = -(nums[ptrmin] + nums[ptrmx]);
             
             let i = binarySearch(ptrmin+1,ptrmx-1, third);
             
@@ -95,22 +102,18 @@ var threeSum = function(nums) {
                 let foundTrip = searchTriplet([third,nums[ptrmin],nums[ptrmx]]);
                 
                 if(!foundTrip){ 
-                    triplets.push([third,nums[ptrmin],nums[ptrmx]]);
+                    let trip = [third,nums[ptrmin],nums[ptrmx]];
+                    sorta(trip);
+                    triplets.push(trip);
                 }
             }
             
             //promote couunters:
-            if(ptrmx > Math.floor(nums.length/2) ){
-                ptrmx--;
-            }else{
-                ptrmx = nums.length-1;
-                
-                if(ptrmin > Math.floor(nums.length/2)) finished = true;
-                
-                ptrmin++;
-            }
+            ptrmx--;
             
         }
+        ptrmin++;
+    }
     
     
     return triplets;
