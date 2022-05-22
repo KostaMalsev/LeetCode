@@ -1,4 +1,4 @@
-<script>
+  <script>
   /**
    * @param {string} digits
    * @return {string[]}
@@ -10,6 +10,11 @@
 
     function getChars(digit_) {
       if (digit_ == '1') return [];
+        
+      if(digit_ == '7') return ['p','q','r','s'];
+      if(digit_ == '8') return ['t','u','v'];
+      if(digit_ == '9') return ['w','x','y','z'];
+        
       let digit = Number(digit_) * 3 - 4;
 
       return [String.fromCharCode(STRT + digit),
@@ -69,5 +74,4 @@
 
   };
 
-  letterCombinations('3')
 </script>
