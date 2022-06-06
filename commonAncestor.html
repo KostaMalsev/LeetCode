@@ -1,2 +1,31 @@
+<script>
 
-
+var lowestCommonAncestor(root,p,q)
+{
+  let map={};
+  let anc=null;
+  
+  function check(val)
+  {
+    if(map[val]!==undefined){
+      anc= val;
+      return true;
+    }else {
+      map[val]=val;
+      return false;
+    }
+  }
+  
+  function visit(node)
+  {
+    if(node== p || node==q)
+    {
+      return node.val;
+    }
+  }
+}
+
+
+
+
+</script>
