@@ -22,6 +22,7 @@ var lowestCommonAncestor(root,p,q)
     {
       return node.val;
     }else{
+      check(node)
       if(node.left){
         visit(node.left);
       }
