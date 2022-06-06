@@ -21,6 +21,13 @@ var lowestCommonAncestor(root,p,q)
     if(node== p || node==q)
     {
       return node.val;
+    }else{
+      if(node.left){
+        visit(node.left);
+      }
+      if(node.right)
+        visit(node.right);
+      return;  
     }
   }
 }
