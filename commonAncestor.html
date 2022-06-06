@@ -30,7 +30,10 @@ var lowestCommonAncestor(root,p,q)
       return;  
     }
   }
-}
+  visit(root)
+  if(anc==null)return root.val;
+  else return anc;
+};
 
 
 
