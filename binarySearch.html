@@ -12,7 +12,7 @@ function shortestDistanceColor (colors, queries) {
     
     let aa = [1,4,6,7,9,11,17];
     
-    let ress = search(14,aa);
+    let ress = search(5,aa);
     
     console.log(ress);
     
@@ -27,7 +27,7 @@ function shortestDistanceColor (colors, queries) {
                 
         console.log('enter: l h mid',l,h,mid,'arr:',a)
         let i=0;
-        while( l < h)
+        while( l < h && i <100)
         {
           
             i++;
@@ -48,7 +48,7 @@ function shortestDistanceColor (colors, queries) {
                 }else{
                   
                     console.log('<-','val:',val,'amid:',a[mid])
-                    h = mid;
+                    h = mid-1;
                 }
             }
         }
