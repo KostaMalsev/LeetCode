@@ -1,2 +1,99 @@
+<script>
+/**
+ * @param {number[]} colors
+ * @param {number[][]} queries
+ * @return {number[]}
+ */
+var shortestDistanceColor = function(colors, queries) {
+    
+        
+    //binary search in this sorted arr;
+    function search(val,a)
+    {
+        let l=0;
+        let h = a.length-1;
+        let mid = (h-l) >> 1;
+        let found = false;
+        
+        let hss={};
+        
+        console.log('enter: l h mid',l,h,mid)
+        while( (mid < h) && (mid > l))
+        {
+            let prev = mid;
+            mid = (h-l) >> 1;
+            
+            if(hss[a[mid]]!==undefined)
+                {
+                    return prev;
+                    
+                }else{
+                    
+                   hss[a[mid]]=1; 
+                }
+            
+            if( (val - a[mid]) > 0)
+            {
+               l = mid;
+               console.log('->','val:'.val,'amid:',a[mid])
+                
+            }else{
+                
+                if(val - a[mid] == 0)
+                {
+                    return mid;
+                    
+                }else{
+                    console.log('<-','val:'.val,'amid:',a[mid])
+                    h = mid;
+                }
+            }
+        }
+            
+        return mid;
+        
+    }
+    
+    
+    let hs = {};
+    
+    for(let i=0; i<colors.length;i++)
+        {
+            if(hs[colors[i]] === undefined)
+                {
+                    hs[colors[i]] = [i];
+                    
+                }else{
+                    
+                    hs[colors[i]].push(i);
+                }
+        }
+    
+    for(let j=0;j < 4;j++)
+        {
+            if(hs[j]!==undefined){
+                hs[j].sort((a,b)=>a-b);
+            }
+        }
+    
+    let res=[];
+    
+    console.log(hs)
+    
+    queries.forEach(q=>{
+       let clrs = hs[q[1]];
+       if(clrs!==undefined && clrs.length > 0)
+           {
+               res.push(search(clrs,q[0]));
+               
+           }else{
+               
+               res.push(-1);
+           }
+    });
+    
+    return res;
+        
+};
 
-
+</script>
