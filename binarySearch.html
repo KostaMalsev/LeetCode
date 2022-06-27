@@ -4,33 +4,33 @@
  * @param {number[][]} queries
  * @return {number[]}
  */
-var shortestDistanceColor = function(colors, queries) {
+
+
+shortestDistanceColor([1,1],[1,1]) 
+function shortestDistanceColor (colors, queries) {
     
-        
+    
+    let aa = [1,4,6,7,9,11,15];
+    
+    let ress = search(5,aa);
+    
+    console.log(ress);
+    
+    
+       
     //binary search in this sorted arr;
     function search(val,a)
     {
         let l=0;
         let h = a.length-1;
         let mid = (h-l) >> 1;
-        let found = false;
-        
-        let hss={};
-        
+                
         console.log('enter: l h mid',l,h,mid)
-        while( (mid < h) && (mid > l))
+        
+        while( l < h)
         {
             let prev = mid;
             mid = (h-l) >> 1;
-            
-            if(hss[a[mid]]!==undefined)
-                {
-                    return prev;
-                    
-                }else{
-                    
-                   hss[a[mid]]=1; 
-                }
             
             if( (val - a[mid]) > 0)
             {
@@ -45,7 +45,7 @@ var shortestDistanceColor = function(colors, queries) {
                     
                 }else{
                     console.log('<-','val:'.val,'amid:',a[mid])
-                    h = mid;
+                    h = mid+1;
                 }
             }
         }
