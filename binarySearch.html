@@ -26,10 +26,12 @@ function shortestDistanceColor (colors, queries) {
         let mid = (h-l) >> 1;
                 
         console.log('enter: l h mid',l,h,mid)
-        
-        while( l < h)
+        let i=0;
+        while( l < h && i < 100)
         {
-            let prev = mid;
+          
+            i++;
+            
             mid = (h-l) >> 1;
             
             if( (val - a[mid]) > 0)
