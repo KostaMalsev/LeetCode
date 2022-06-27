@@ -1,2 +1,58 @@
+<script>
+/**
+ * @param {number[][]} board
+ * @return {number}
+ */
+var slidingPuzzle = function(board) {
+    
+    
+    let hs={};
+    let ind = 1;
+    
+    function check(a)
+    {
+        for(let i=0;i <a.length,i++)
+            {
+                for(let j=0;j<a[0].length;j++)
+                    {
+                        if(a[i][j]!=ind)
+                            return false;
+                    }
+            }
+        return true;
+    }
+    
+    
+    let steps = 0;
+    
+    
+    function switch()
+    
+    function move(br,i,j,step,path)
+    {
+        
+        if(check(br)){
+            steps = step;
+            console.log('reached solution: on step',step,'path:',path);
+            return;
+            
+        }else{
+            
+            if(hs[br.toSting()]!==undefined)
+                {
+                    steps = -1;
+                    return;
+                }else{
+                    hs[br.toSting()] = 1;
+                    
+                    
+                }
+            
+        }
+        
+        
+    }
+    
+};
 
-
+</script>
