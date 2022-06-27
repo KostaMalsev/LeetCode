@@ -26,7 +26,22 @@ var slidingPuzzle = function(board) {
     let steps = 0;
     
     
-    function switch()
+    function swap(brd,i,j,r,c)
+    {
+        let brd2 = [];
+        for(let ii=0;ii < brd.length;ii++)
+            {
+                brd2.push(brd[ii].slice());
+            }
+        if(r > 0 && r < 2 && c >0 && c<3)
+            {
+               brd2[r][c] = 0;
+               brd2[i][j] = brd[i][j]; 
+            }
+        return brd2;
+        
+    }
+                    
     
     function move(br,i,j,step,path)
     {
@@ -44,6 +59,10 @@ var slidingPuzzle = function(board) {
                     return;
                 }else{
                     hs[br.toSting()] = 1;
+                    let nbrd = swap(br,i,j,i+1,j+1);
+                    move(nbrd,i+1,j+1,step+1)
+                    let nnbrd = swap(nbrd,i,j,i+1,j+1);
+                    
                     
                     
                 }
