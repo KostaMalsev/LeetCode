@@ -11,6 +11,14 @@ var leadsToDestination = function(n, edges, source, destination) {
     let hs={};
     let count = 0;
     let valid = true;
+    let edgesH={}
+    
+    function getnext(node,edges)
+    {
+        if(edgesH[node]!==undefined)
+         return edgesH[node]
+        else return null;
+    }
     
     function move(node,nexta,count,path)
     {
