@@ -1,2 +1,41 @@
+<script>
 
-
+let s = '123456'
+
+let sa=[];
+
+function gen(ss,count,path)
+{
+  
+  if(ss.length==1){
+    return ss;
+  }else{
+    
+    let mid = ss.length >> 1;
+    
+    let l = gen(ss.substring(0,mid),count+1,path+',' + mid);
+    
+    let r = gen(ss.substring(mid),count+1,path+',' + mid);
+    
+    //if(l.length == 2)
+    //  sa.push(l);
+    //if(r.length == 2)
+    //  sa.push(r)
+      
+    if(r.length==1)
+    {
+      sa.push(r+l)
+      sa.push(l+r)      
+    }
+    console.log('l:',l,'r:',r);
+    
+    return l+r;
+  }
+}
+
+
+gen(s,0,'');
+
+console.log(sa)
+
+</script>
