@@ -2,3 +2,7 @@
 1 online assignment in python
 CODEX demo  - explore.
 
+
+---:
+study on more permutation using backtracking.
+(store options on the way in) and combine with the options from traversal.
