@@ -10,25 +10,6 @@ function rem(s,i)
   return s.slice(0,i) + s.slice(i,s.length);
 }
 
-function gen(ss,i,count,path)
-{
-  
-  if(i >= saa.length-1 )
-  {
-    return ss;
-    
-  }else{
-    let c = s[i];
-    let l = gen(rem(s,i),i+1,count+1,path);
-    
-    
-    //console.log('l:',l,'char:',char);
-    sa.push(c+l)
-      
-    return l;
-  }
-}
-
 
 const stringPermutations = str => {
   
@@ -44,10 +25,34 @@ const stringPermutations = str => {
     );
 };
 
-console.log(stringPermutations('abc'));
+console.log(stringPermutations('abcd'));
 console.log(stringPermutations('*$*'));
 
+//-----------------2nd method:
 
+function permut(string) {
+  if (string.length < 2) return string; // This is our break condition
+
+  var permutations = []; // This array will hold our permutations
+  for (var i = 0; i < string.length; i++) {
+    var char = string[i];
+
+    // Cause we don't want any duplicates:
+    if (string.indexOf(char) != i) // if char was used already
+      continue; // skip it this time
+
+    var remainingString = string.slice(0, i) + string.slice(i + 1, string.length); //Note: you can concat Strings via '+' in JS
+
+    for (var subPermutation of permut(remainingString))
+      permutations.push(char + subPermutation)
+  }
+  return permutations;
+}
+
+var myString = "xyz";
+ permutations = permut(myString);
+ for (permutation of permutations)
+   console.log(permutation) //Use the output method of your choice
 
 
 </script>
