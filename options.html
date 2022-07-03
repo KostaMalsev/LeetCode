@@ -18,28 +18,33 @@ function gen(ss,i,count,path)
     return ss;
     
   }else{
-    
-    
-    let si = ss.split('');
-    let char = si.splice(i,1);
-      
-    let l = gen(si.join(''),i+1,count+1,path);
+    let c = s[i];
+    let l = gen(rem(s,i),i+1,count+1,path);
     
     
     //console.log('l:',l,'char:',char);
-    sa.push(char+l)
+    sa.push(c+l)
       
-    return char;
+    return l;
   }
 }
 
 
-function gen2(s)
-{
+const stringPermutations = str => {
   
-  
-  
-}
+  if (str.length <= 2) 
+      return str.length === 2 ? [str, str[1] + str[0]] : [str];
+  return str
+    .split('')
+    .reduce(
+      (acc, letter, i) =>
+        acc.concat(stringPermutations(str.slice(0, i) + str.slice(i + 1)).map(val => letter + val)),
+      []
+    );
+};
+
+console.log(stringPermutations('abc'));
+console.log(stringPermutations('*$*'));
 
 
 gen(s,0,0,'');
