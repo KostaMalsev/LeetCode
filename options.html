@@ -38,7 +38,8 @@ const stringPermutations = str => {
     .split('')
     .reduce(
       (acc, letter, i) =>
-        acc.concat(stringPermutations(str.slice(0, i) + str.slice(i + 1)).map(val => letter + val)),
+        acc.concat(stringPermutations(str.slice(0, i) + str.slice(i + 1))
+        .map(val => letter + val)),
       []
     );
 };
@@ -47,8 +48,6 @@ console.log(stringPermutations('abc'));
 console.log(stringPermutations('*$*'));
 
 
-gen(s,0,0,'');
 
-console.log(sa)
 
 </script>
