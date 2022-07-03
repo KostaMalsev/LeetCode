@@ -1,40 +1,33 @@
 <script>
 
 let s = '123456'
-
+let saa = s.split('');
 let sa=[];
 
-function gen(ss,count,path)
+function gen(ss,i,count,path)
 {
   
-  if(ss.length==1){
+  if(i >= saa.length-1 )
+  {
     return ss;
+    
   }else{
     
-    let mid = ss.length >> 1;
     
-    let l = gen(ss.substring(0,mid),count+1,path+',' + mid);
+    let si = ss.slice();
+    let char = si.splice(i,1);  
+    let l = gen(si,i+1,count+1,path);
     
-    let r = gen(ss.substring(mid),count+1,path+',' + mid);
     
-    //if(l.length == 2)
-    //  sa.push(l);
-    //if(r.length == 2)
-    //  sa.push(r)
-      
-    if(r.length==1)
-    {
-      sa.push(r+l)
-      sa.push(l+r)      
-    }
-    console.log('l:',l,'r:',r);
-    
-    return l+r;
+    //console.log('l:',l,'char:',char);
+      sa.push(char+l.join(''))
+      sa.push(l.join('')+char)
+    return l;
   }
 }
 
 
-gen(s,0,'');
+gen(saa,0,0,'');
 
 console.log(sa)
 
