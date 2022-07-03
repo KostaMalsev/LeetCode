@@ -4,6 +4,12 @@ let s = '123456'
 let saa = s.split('');
 let sa=[];
 
+
+function rem(s,i)
+{
+  return s.slice(0,i) + s.slice(i,s.length);
+}
+
 function gen(ss,i,count,path)
 {
   
@@ -23,8 +29,16 @@ function gen(ss,i,count,path)
     //console.log('l:',l,'char:',char);
     sa.push(char+l)
       
-    return l+char;
+    return char;
   }
+}
+
+
+function gen2(s)
+{
+  
+  
+  
 }
 
 
