@@ -14,20 +14,21 @@ function gen(ss,i,count,path)
   }else{
     
     
-    let si = ss.slice();
-    let char = si.splice(i,1);  
-    let l = gen(si,i+1,count+1,path);
+    let si = ss.split('');
+    let char = si.splice(i,1);
+      
+    let l = gen(si.join(''),i+1,count+1,path);
     
     
     //console.log('l:',l,'char:',char);
-    sa.push(char+l.join(''))
+    sa.push(char+l)
       
     return l+char;
   }
 }
 
 
-gen(saa,0,0,'');
+gen(s,0,0,'');
 
 console.log(sa)
 
