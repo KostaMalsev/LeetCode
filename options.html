@@ -20,9 +20,11 @@ function gen(ss,i,count,path)
     
     
     //console.log('l:',l,'char:',char);
-      sa.push(char+l.join(''))
-      sa.push(l.join('')+char)
-    return l;
+    
+      sa.push(char+l)
+      sa.push(l+char)
+      
+    return l+char;
   }
 }
 
