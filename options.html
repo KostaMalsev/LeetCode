@@ -11,40 +11,32 @@ function rem(s,i)
 }
 
 
-const stringPermutations = str => {
-  
-  if (str.length <= 2) 
-      return str.length === 2 ? [str, str[1] + str[0]] : [str];
-  return str
-    .split('')
-    .reduce(
-      (acc, letter, i) =>
-        acc.concat(stringPermutations(str.slice(0, i) + str.slice(i + 1))
-        .map(val => letter + val)),
-      []
-    );
-};
-
-console.log(stringPermutations('abcd'));
-console.log(stringPermutations('*$*'));
-
 //-----------------2nd method:
 
-function permut(string) {
-  if (string.length < 2) return string; // This is our break condition
+function permut(string) 
+{
+  if (string.length < 2) 
+    return string; // This is our break condition
 
   var permutations = []; // This array will hold our permutations
-  for (var i = 0; i < string.length; i++) {
+  for (var i = 0; i < string.length; i++) 
+  {
     var char = string[i];
 
     // Cause we don't want any duplicates:
     if (string.indexOf(char) != i) // if char was used already
       continue; // skip it this time
 
-    var remainingString = string.slice(0, i) + string.slice(i + 1, string.length); //Note: you can concat Strings via '+' in JS
+    var remainingString = string.slice(0, i) + 
+                          string.slice(i + 1, string.length); 
 
-    for (var subPermutation of permut(remainingString))
-      permutations.push(char + subPermutation)
+    let subPermutation = permut(remainingString);
+    
+    //for (var subPermutation of permut(remainingString))
+    for(let i=0;i< subPermutation.length;i++)
+    {
+      permutations.push(char + subPermutation[i]);
+    }
   }
   return permutations;
 }
