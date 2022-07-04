@@ -1,3 +1,5 @@
+* Permutation generator, dp for recangle - rewrite
+
 2 mock assignments.
 1 online assignment in python
 CODEX demo  - explore.
