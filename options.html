@@ -31,19 +31,21 @@ function permut(string)
 
     let subPermutation = permut(remainingString);
     
+    console.log('------')
     //for (var subPermutation of permut(remainingString))
     for(let i=0;i< subPermutation.length;i++)
     {
       permutations.push(char + subPermutation[i]);
+      console.log(subPermutation[i]);
     }
   }
   return permutations;
 }
 
-var myString = "xyz";
+var myString = "1234";
  permutations = permut(myString);
- for (permutation of permutations)
-   console.log(permutation) //Use the output method of your choice
+ //for (permutation of permutations)
+  // console.log(permutation) //Use the output method of your choice
 
 
 </script>
