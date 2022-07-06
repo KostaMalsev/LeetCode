@@ -17,7 +17,6 @@ function rem(s,i)
 
 function perm(a)
 {
-  let res = [];
   
   if(a.length==1)
   {
@@ -28,10 +27,14 @@ function perm(a)
     
     for(let i=0;i<a.length;i++)
     {
-      comb.push(a[i] + perm(rem(a,i)));
+      
+      let res = perm(rem(a,i));
+      for(let j=0;j<res.length;j++)
+      {
+         comb.push(a[i] + res[j]);
+      }
     }
-    if(a.length==3)
-      res = comb.slice()
+    
     
     return comb;
   }
