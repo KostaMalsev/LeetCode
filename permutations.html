@@ -1,48 +1,36 @@
 <script>
+  let a = 'abc';
 
 
-let a = 'abc';
+  function rem(s, i) {
+    let sa = s.split('');
+    sa.splice(i, 1)
+    return sa.join('');
+  }
 
 
-function rem(s,i)
-{
-  let sa = s.split('');
-  sa.splice(i,1)
-  return sa.join('');
-}
+  function perm(a) {
 
+    if (a.length)
+      return '';
 
+    let comb = [];
 
-
-
-function perm(a)
-{
-  
-  if(a.length==1)
-  {
-    return a;
-  }else{
-    
-    let comb=[];
-    
-    for(let i=0;i<a.length;i++)
+    for (let i = 0; i < a.length; i++) 
     {
+
+      let res = perm(rem(a, i));
       
-      let res = perm(rem(a,i));
-      for(let j=0;j<res.length;j++)
+      for (let j = 0; j < res.length; j++) 
       {
-         comb.push(a[i] + res[j]);
+        comb.push(a[i] + res[j]);
       }
     }
-    
-    
+
     return comb;
   }
-  
-}
 
- console.log(perm(a));
+  }
 
-
-
+  console.log(perm(a));
 </script>
