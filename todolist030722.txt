@@ -8,3 +8,9 @@ CODEX demo  - explore.
 ---:
 study on more permutation using backtracking.
 (store options on the way in) and combine with the options from traversal.
+
+6/7/22:
+1. dp 2 problems
+2. read about strings
+3. 1 simulation
+4. python review
