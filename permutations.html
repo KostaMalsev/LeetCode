@@ -11,8 +11,8 @@
 
   function perm(a) {
 
-    if (a.length)
-      return '';
+    if (a.length==1)
+      return a;
 
     let comb = [];
 
@@ -28,7 +28,6 @@
     }
 
     return comb;
-  }
 
   }
 
