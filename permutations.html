@@ -1,2 +1,45 @@
+<script>
 
-
+
+let a = 'abc';
+
+
+function rem(s,i)
+{
+  let sa = s.split('');
+  sa.splice(i,1)
+  return sa.join('');
+}
+
+
+
+
+
+function perm(a)
+{
+  let res = [];
+  
+  if(a.length==1)
+  {
+    return a;
+  }else{
+    
+    let comb=[];
+    
+    for(let i=0;i<a.length;i++)
+    {
+      comb.push(a[i] + perm(rem(a,i)));
+    }
+    if(a.length==3)
+      res = comb.slice()
+    
+    return comb;
+  }
+  
+}
+
+ console.log(perm(a));
+
+
+
+</script>
