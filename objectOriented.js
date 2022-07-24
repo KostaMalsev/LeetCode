@@ -30,4 +30,5 @@ class BaseMenu extends MenuInterface {
     return items;
   }
 }
+
 export default new BaseMenu();  // No Error, has the method
